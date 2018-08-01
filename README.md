@@ -1,1 +1,1 @@
-# Logger
+# CreateEmptyMavenProject
