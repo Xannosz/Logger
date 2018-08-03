@@ -1,0 +1,99 @@
+body{
+	background-color: white;
+	font-size: 120%;
+}
+
+nav{
+	margin: 2% 5% 0% 5%;
+}
+
+/* Menu */
+#styleButton, #rowButton,#columnButton {
+    color: black;
+	background-color: white;
+	display: block;
+	border: 1px solid black;
+	float: left;
+	width: 100%;
+	font-size: 130%;
+}
+.navList {
+	float: left;
+	margin: 2%;
+}
+#styleList,#rowList,#columnList {
+    background-color: white;
+	display: block;
+}
+#styleList  a:hover,#rowList  a:hover,#columnList a:hover {
+	background-color: white;
+	border: 1px solid black;
+	color: gray;
+}
+nav ul{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+nav li a{
+	background-color: white;
+	border: 1px solid black;
+	padding: 2%;
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	color: black;
+}
+
+/* Table */
+table{
+	margin: 0% 5% 2% 5%;
+	padding: 1% 3%;	
+	line-height: 140%;
+}
+tr{
+	padding: 1% 3%;
+	white-space: nowrap;
+}
+td{
+	text-align: center;
+	padding: 1px 10px;
+	white-space: pre;
+	color: black;
+	border: 2px solid lightgray;
+}
+th{
+	color: white;
+	text-align: center;
+	padding: 1px 10px;
+	background-color:  gray;
+	border: 2px solid black;
+}
+
+/* Special */
+.message {
+	text-align: left;
+	min-width: 600px;
+}
+
+.trace td {
+	background-color:  blue;
+	color: white;
+}
+
+.debug td {
+	background-color:  green;
+	color: white;
+}
+
+.warning td {
+	background-color:  brown;
+}
+
+.error td {
+	background-color:  red;
+}
+
+tr:hover td{
+	border: 2px solid black;
+}

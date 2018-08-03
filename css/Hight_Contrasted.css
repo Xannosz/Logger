@@ -1,0 +1,110 @@
+body{
+	background-color: black;
+	font-family: Arial;
+	font-size: 150%;
+}
+
+nav{
+	margin: 2% 5% 0% 5%;
+}
+
+/* Style The Dropdown Menu */
+#styleButton, #rowButton,#columnButton {
+	font-size: 80%;
+	margin: 5%;
+    color: yellow;
+	font-family: Arial;
+	background-color: black;
+    padding: 5%;
+    border: none;
+	height: 60px;
+	display: table-cell;
+	border: 4px solid yellow;
+	border-radius: 6px 6px 6px 6px;
+}
+.navList {
+    position: relative;
+    display: inline-block;
+}
+#styleList,#rowList,#columnList {
+    display: none;
+    position: absolute;
+    background-color: black;
+	border: 4px solid yellow;
+	border-radius: 6px 6px 6px 6px;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+#styleList li,#rowList li,#columnList li{
+    color: yellow;
+    padding: 5% 5%;
+    display: block;
+}
+#styleList  a:hover,#rowList  a:hover,#columnList a:hover {
+	background-color: yellow;
+	border-radius: 6px 6px 6px 6px;
+	color: black;
+}
+.navList:hover #styleList,.navList:hover #rowList,.navList:hover #columnList {
+    display: block;
+}
+.navList:hover #styleButton,.navList:hover #rowButton,.navList:hover #columnButton{
+	background-color: yellow;
+	border-radius: 6px 6px 6px 6px;
+	color: black;
+}
+nav ul{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+nav li a{
+	background-color: black;
+	border: 4px solid yellow;
+	border-radius: 6px 6px 6px 6px;
+	display: block;
+	text-align: center;
+	padding: 5% 5%;
+	display: table-cell;
+	vertical-align: middle;
+	color: yellow;
+	width: 15%;
+	height: 15%;
+}
+
+/* Table */
+table{
+	padding: 1% 3%;	
+	line-height: 140%;
+}
+tr{
+	padding: 1% 3%;
+	white-space: nowrap;
+}
+td{
+	text-align: center;
+	padding: 1px 10px;
+	white-space: pre;
+	color: yellow;
+	border: 4px solid black;
+	border-radius: 6px 6px 6px 6px;
+}
+th{
+	border: 4px solid yellow;
+	color: yellow;
+	text-align: center;
+	padding: 1px 10px;
+	background-color:  black;
+	border-radius: 6px 6px 6px 6px;
+}
+
+/* Special */
+.message {
+	text-align: left;
+	min-width: 600px;
+}
+
+tr:hover td{
+	border: 4px solid yellow;
+}

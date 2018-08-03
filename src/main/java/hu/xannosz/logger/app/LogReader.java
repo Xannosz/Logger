@@ -28,6 +28,8 @@ public class LogReader extends Thread {
 			writer = new OutputWriter(outputFolder + "/" + log.program + "/"
 					+ (new SimpleDateFormat("yyyyMMdd_HHmmss_SSS")).format(Calendar.getInstance().getTime()));
 
+			writer.addLog(log);
+			
 			while (true) {
 				log = (Log) in.readObject();
 				if (log == null) {

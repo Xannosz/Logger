@@ -25,7 +25,6 @@ public class OutputWriter {
 			(new File(path + "/index.html")).createNewFile();
 			p = new PrintWriter(path + "/index.html", "UTF-8");
 		} catch (IOException e) {
-			e.printStackTrace(); // TODO
 		}
 		writeHeader();
 	}
@@ -42,28 +41,57 @@ public class OutputWriter {
 	private void writeHeader() {
 		p.write("<!DOCTYPE html><html lang=\"hu\"><head><title>Xannosz Logger</title><meta charset=\"utf-8\"><script type=\"text/javascript\" src=\"js/styleswitcher.js\"></script>\n");
 		writeCSSs();
-		p.write("</head><body><nav><ul id=\"style\">");
+		p.write("</head><body><nav><div class=\"navList\"><button id=\"styleButton\">Select Style</button><ul id=\"styleList\">\n");
 		writeCSSSwitcherButtons();
-		p.write("</ul>" + "</nav><section><table><tr>"
-				+ "<th>Level</th><th>Time</th><th>Reason</th><th>Message</th><th>Throwable</th><th>Class</th>"
-				+ "</tr>\n");
+		p.write("</ul></div>");
+		writeRowSelector();
+		writeColumnSelector();
+		p.write("</nav><section><table>\n<tr>"
+				+ "<th>Level</th><th>Date</th><th>Time</th><th>MiliSec</th><th> </th><th>Class</th>" + "</tr>\n");
 		p.flush();
+	}
+
+	private void writeRowSelector() {
+		p.write("<div class=\"navList\"><button id=\"rowButton\">Select Level</button><ul id=\"rowList\">\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('TRACE'); return false;\">TRACE</a></li>\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('DEBUG'); return false;\">DEBUG</a></li>\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('INFO'); return false;\">INFO</a></li>\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('WARN'); return false;\">WARN</a></li>\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('ERROR'); return false;\">ERROR</a></li>\n" + "</ul></div>");
+	}
+
+	private void writeColumnSelector() {
+		p.write("<div class=\"navList\"><button id=\"columnButton\">Select Column</button><ul id=\"columnList\">\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('Level'); return false;\">Level</a></li>\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('Date'); return false;\">Date</a></li>\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('Time'); return false;\">Time</a></li>\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('MiliSec'); return false;\">MiliSec</a></li>\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('Log'); return false;\">Log</a></li>\n"
+				+ "<li><a onclick=\"setActiveStyleSheet('Class'); return false;\">Class</a></li>\n" + "</ul></div>");
 	}
 
 	private void writeCSSSwitcherButtons() {
 		for (File f : cssS) {
-			writeCSSSwitcherButton(f.getName());
+			if (!f.getName().equals("fonts")) {
+				writeCSSSwitcherButton(f.getName());
+			}
 		}
 	}
 
 	private void writeCSSSwitcherButton(String file) {
-		p.write("<li><a onclick=\"setActiveStyleSheet('" + file + "'); return false;\"> " + file + "</a></li>\n");
+		p.write("<li><a onclick=\"setActiveStyleSheet('" + file + "'); return false;\"> " + makeName(file)
+				+ "</a></li>\n");
+	}
 
+	private String makeName(String file) {
+		return file.replaceAll(".css", "").replaceAll("_", " ");
 	}
 
 	private void writeCSSs() {
 		for (File f : cssS) {
-			writeCSS(f.getName());
+			if (!f.getName().equals("fonts")) {
+				writeCSS(f.getName());
+			}
 		}
 	}
 
@@ -129,30 +157,14 @@ public class OutputWriter {
 	}
 
 	private void writeTDRowFromLog(String level, Log log) {
-		writeTDRow(level, log.date != null ? (new SimpleDateFormat("yyyy.MM.dd HH:mm:ss")).format(log.date) : "",
-				guard(log.reason), guard(log.message),
-				log.e != null ? listToString(Arrays.asList(log.e.getStackTrace())) : "", log.clazz.getSimpleName());
+		writeTDRow(level, (new SimpleDateFormat("yyyy.MM.dd")).format(log.date),
+				(new SimpleDateFormat("hh:mm:ss")).format(log.date), (new SimpleDateFormat("SSS")).format(log.date),
+				log.message, log.clazz.getSimpleName());
 	}
 
-	private String guard(String s) {
-		if (s == null || s.isEmpty()) {
-			return "";
-		}
-		return s;
-	}
-
-	private String listToString(List<StackTraceElement> list) {
-		StringBuilder builder = new StringBuilder();
-		for (StackTraceElement elem : list) {
-			builder.append(elem.toString());
-			builder.append("\n");
-		}
-		return builder.toString();
-	}
-
-	private void writeTDRow(String level, String time, String reason, String message, String throwable, String clazz) {
-		p.write("<td class=\"level\">" + level + "</td><td class=\"time\">" + time + "</td><td class=\"reason\">"
-				+ reason + "</td><td class=\"message\">" + message + "</td><td class=\"throwable\">" + throwable
+	private void writeTDRow(String level, String date, String time, String milisec, String message, String clazz) {
+		p.write("<td class=\"level\">" + level + "</td><td class=\"date\">" + date + "</td><td class=\"time\">" + time
+				+ "</td><td class=\"milisec\">" + milisec + "</td><td class=\"message\">" + message
 				+ "</td><td class=\"clazz\">" + clazz + "</td>\n");
 	}
 }
