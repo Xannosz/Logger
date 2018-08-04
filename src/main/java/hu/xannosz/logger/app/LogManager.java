@@ -6,7 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LogManager {
@@ -33,13 +32,13 @@ public class LogManager {
 
 		try {
 			port = obj.getInt("port");
-		} catch (JSONException e) {
+		} catch (Exception e) {
 			port = 1776;
 		}
 
 		try {
 			outputFolder = obj.getString("outputFolder");
-		} catch (JSONException e) {
+		} catch (Exception e) {
 			outputFolder = "/tmp";
 		}
 
