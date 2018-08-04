@@ -1,62 +1,72 @@
-body{
+body {
 	background-color: black;
 	font-size: 120%;
 }
 
-nav{
+nav {
 	margin: 2% 5% 0% 5%;
 }
 
 /* Style The Dropdown Menu */
-#styleButton, #rowButton,#columnButton {
+#styleButton, #rowButton, #columnButton {
 	font-size: 80%;
 	margin: 5%;
-    color: lightgray;
+	color: lightgray;
 	background-color: black;
-    padding: 5%;
+	padding: 5%;
 	border-radius: 6px 6px 6px 6px;
 	height: 60px;
 	display: table-cell;
 	border: 1px solid gray;
 }
+
 .navList {
-    position: relative;
-    display: inline-block;
+	position: relative;
+	display: inline-block;
 }
-#styleList,#rowList,#columnList {
-    display: none;
-    position: absolute;
-    background-color: black;
+
+#styleList, #rowList, #columnList {
+	display: none;
+	position: absolute;
+	background-color: black;
 	border: 1px solid gray;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
-#styleList li,#rowList li,#columnList li{
-    color: black;
-    padding: 5% 5%;
-    text-decoration: none;
-    display: block;
+
+#styleList li, #rowList li, #columnList li {
+	color: black;
+	padding: 5% 5%;
+	text-decoration: none;
+	display: block;
 }
-#styleList  a:hover,#rowList  a:hover,#columnList a:hover {
+
+#styleList  a:hover, #rowList  a:hover, #columnList a:hover {
 	background-color: black;
 	border: 1px solid white;
 	color: white;
 }
-.navList:hover #styleList,.navList:hover #rowList,.navList:hover #columnList {
-    display: block;
+
+.navList:hover #styleList, .navList:hover #rowList, .navList:hover #columnList
+	{
+	display: block;
 }
-.navList:hover #styleButton,.navList:hover #rowButton,.navList:hover #columnButton{
+
+.navList:hover #styleButton, .navList:hover #rowButton, .navList:hover #columnButton
+	{
 	color: white;
 	border: 1px solid white;
 }
-nav ul{
+
+nav ul {
 	list-style-type: none;
 	padding: 0px;
 	margin: 0px;
 	border-radius: 5px 5px 5px 5px;
 }
-nav li a{
+
+nav li a {
 	border-radius: 6px 6px 6px 6px;
 	background-color: black;
 	border: 1px solid gray;
@@ -73,54 +83,81 @@ nav li a{
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+	width: 10px;
+	height: 10px;
 }
+
 ::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
+	width: 0px;
+	height: 0px;
 }
+
 ::-webkit-scrollbar-track {
-   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
-   border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+	border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #e1e1e1;
-  border: 0px none gray;
-  border-radius: 50px;
+	background: #e1e1e1;
+	border: 0px none gray;
+	border-radius: 50px;
 }
+
 ::-webkit-scrollbar-corner {
-  background: transparent;
+	background: transparent;
 }
 
 /* Table */
-table{
+table {
 	margin: 0% 5% 2% 5%;
-	padding: 1% 3%;	
+	padding: 1% 3%;
 	line-height: 140%;
 }
-tr{
+
+tr {
 	padding: 1% 3%;
 	white-space: nowrap;
 }
-td{
+
+td {
 	border-radius: 5px 5px 5px 5px;
 	text-align: center;
 	padding: 1px 10px;
 	white-space: pre;
 	border: 1px solid black;
 }
-th{
+
+th {
 	border-radius: 5px 5px 5px 5px;
 	border: 1px solid gray;
 	color: gray;
 	text-align: center;
 	padding: 1px 10px;
-	background-color:  black;
+	background-color: black;
+}
+
+#topButton {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	border: 1px solid gray;
+	border-radius: 5px 5px 5px 5px;
+	outline: none;
+	background-color: black;
+	color: gray;
+	padding: 15px;
+	font-size: 18px;
+}
+
+#topButton:hover {
+	color: white;
+	border: 1px solid white;
 }
 
 /* Special */
-.message {
+tr .message {
 	text-align: left;
 	min-width: 600px;
 }
@@ -128,18 +165,32 @@ th{
 .trace {
 	color: blue;
 }
+
 .debug {
 	color: green;
 }
+
 .info {
 	color: gray;
 }
+
 .warning {
 	color: brown;
 }
+
 .error {
 	color: red;
 }
-tr:hover td{
+
+tr:hover td {
 	border: 1px solid gray;
+}
+
+/* Deactivate */
+table .deactivate {
+	display: none;
+}
+
+ul .deactivate {
+	border: 1px solid black;
 }

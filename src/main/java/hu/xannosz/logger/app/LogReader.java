@@ -5,7 +5,7 @@ import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import hu.xannosz.logger.Log;
+import hu.xannosz.microtools.logger.Log;
 
 public class LogReader extends Thread {
 
@@ -29,7 +29,7 @@ public class LogReader extends Thread {
 					+ (new SimpleDateFormat("yyyyMMdd_HHmmss_SSS")).format(Calendar.getInstance().getTime()));
 
 			writer.addLog(log);
-			
+
 			while (true) {
 				log = (Log) in.readObject();
 				if (log == null) {

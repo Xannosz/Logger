@@ -1,61 +1,72 @@
-body{
+body {
 	background-color: lightgray;
 	font-size: 120%;
 }
 
-nav{
+nav {
 	margin: 2% 5% 0% 5%;
 }
 
 /* Style The Dropdown Menu */
-#styleButton, #rowButton,#columnButton {
+#styleButton, #rowButton, #columnButton {
 	font-size: 80%;
 	margin: 5%;
-    background-color: grey;
-    color: white;
-    padding: 5%;
-    border: none;
+	background-color: grey;
+	color: white;
+	padding: 5%;
+	border: none;
 	border-radius: 6px 6px 6px 6px;
 	height: 60px;
 	display: table-cell;
 }
+
 .navList {
-    position: relative;
-    display: inline-block;
+	position: relative;
+	display: inline-block;
 }
-#styleList,#rowList,#columnList {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+
+#styleList, #rowList, #columnList {
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
 }
-#styleList li,#rowList li,#columnList li{
-    color: black;
-    padding: 5% 5%;
-    text-decoration: none;
-    display: block;
+
+#styleList li, #rowList li, #columnList li {
+	color: black;
+	padding: 5% 5%;
+	text-decoration: none;
+	display: block;
 }
-#styleList  a:hover,#rowList  a:hover,#columnList a:hover {
+
+#styleList  a:hover, #rowList  a:hover, #columnList a:hover {
 	background-color: lightgray;
 	color: white;
 }
-.navList:hover #styleList,.navList:hover #rowList,.navList:hover #columnList {
-    display: block;
+
+.navList:hover #styleList, .navList:hover #rowList, .navList:hover #columnList
+	{
+	display: block;
 }
-.navList:hover #styleButton,.navList:hover #rowButton,.navList:hover #columnButton{
-    background-color: green;
+
+.navList:hover #styleButton, .navList:hover #rowButton, .navList:hover #columnButton
+	{
+	background-color: green;
 }
-nav ul{
+
+nav ul {
 	list-style-type: none;
 	padding: 0px;
 	margin: 0px;
 	background-color: lightgray;
 	border-radius: 5px 5px 5px 5px;
 }
-nav li a{
+
+nav li a {
 	border-radius: 6px 6px 6px 6px;
+	border: 2px solid lightgray;
 	background-color: lightgray;
 	display: block;
 	text-align: center;
@@ -70,43 +81,50 @@ nav li a{
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+	width: 10px;
+	height: 10px;
 }
+
 ::-webkit-scrollbar-button {
-  width: 0px;
-  height: 0px;
+	width: 0px;
+	height: 0px;
 }
+
 ::-webkit-scrollbar-track {
-   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
-   border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+	border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #e1e1e1;
-  border: 0px none gray;
-  border-radius: 50px;
+	background: #e1e1e1;
+	border: 0px none gray;
+	border-radius: 50px;
 }
+
 ::-webkit-scrollbar-corner {
-  background: transparent;
+	background: transparent;
 }
 
 /* Table */
-table{
+table {
 	margin: 0% 5% 2% 5%;
-	padding: 1% 3%;	
+	padding: 1% 3%;
 	line-height: 140%;
 }
-tr{
+
+tr {
 	padding: 1% 3%;
 	white-space: nowrap;
 }
-td{
+
+td {
 	border-radius: 5px 5px 5px 5px;
 	text-align: center;
 	padding: 1px 10px;
 	white-space: pre;
 }
-th{
+
+th {
 	border-radius: 5px 5px 5px 5px;
 	color: white;
 	text-align: center;
@@ -114,8 +132,28 @@ th{
 	background-color: gray;
 }
 
+#topButton {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	border-radius: 6px 6px 6px 6px;
+	border: 1px solid gray;
+	z-index: 99;
+	outline: none;
+	background-color: lightgray;
+	color: black;
+	padding: 15px;
+	font-size: 18px;
+}
+
+#topButton:hover {
+	background-color: gray;
+	color: white;
+}
+
 /* Special */
-.message {
+tr .message {
 	text-align: left;
 	min-width: 600px;
 }
@@ -123,18 +161,42 @@ th{
 .trace {
 	color: blue;
 }
+
 .debug {
 	color: green;
 }
+
 .info {
 	color: black;
 }
+
 .warning {
 	color: brown;
 }
+
 .error {
 	color: red;
 }
+
 tr:hover {
-	background-color:  #e1e1e1;
+	background-color: #e1e1e1;
+}
+
+/* Deactivate */
+table .deactivate {
+	display: none;
+}
+
+ul .deactivate {
+	border-radius: 6px 6px 6px 6px;
+	border: 2px solid lightgray;
+	background-color: white;
+	display: block;
+	text-align: center;
+	padding: 5% 5%;
+	display: table-cell;
+	vertical-align: middle;
+	text-decoration: none;
+	width: 15%;
+	height: 15%;
 }
