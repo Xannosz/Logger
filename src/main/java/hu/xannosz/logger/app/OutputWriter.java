@@ -41,7 +41,6 @@ public class OutputWriter {
 	private void writeHeader() {
 		p.write("<!DOCTYPE html><html lang=\"hu\"><head><title>Xannosz Logger</title><meta charset=\"utf-8\">\n");
 		p.write("<script type=\"text/javascript\" src=\"js/styleswitcher.js\"></script>\n");
-		p.write("<script type=\"text/javascript\" src=\"js/selector.js\"></script>\n");
 		p.write("<script type=\"text/javascript\"src=\"js/scroll.js\"></script>\n");
 		writeCSSs();
 		p.write("</head><body><nav><div class=\"navList\"><button id=\"styleButton\">Select Style</button><ul id=\"styleList\">\n");
