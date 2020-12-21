@@ -2,3 +2,5 @@
 /.classpath
 /.settings/
 /csomag
+/.idea
+/Logger.iml
